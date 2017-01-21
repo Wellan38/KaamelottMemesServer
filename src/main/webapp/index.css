@@ -1,0 +1,48 @@
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.card-img-top{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+img{
+    height: 100%;
+}
+
+.card{
+    border: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.navbar{
+    background-color: rgb(25,25,25);
+    margin-bottom: 10px;
+}
+
+.btn{
+    cursor: pointer;
+}
+
+[id^="new_tag"]{
+    margin-bottom: 5px;
+}
+
+[id^="update_tag"]{
+    margin-bottom: 5px;
+}

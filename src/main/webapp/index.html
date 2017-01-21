@@ -5,12 +5,117 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="assets/css/tether/tether.css">
         <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="index.css">
+        
+        <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="icons/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <nav class="navbar sticky-top navbar-inverse bg-faded">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="input-group stylish-input-group">
+                            <input id="search" type="text" class="form-control"  placeholder="Search meme..." onkeyup="searchMeme()">
+                            <span class="input-group-addon">
+                                <button>
+                                    <span class="fa fa-search"></span>
+                                </button>  
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <button type="button"class="btn btn-secondary" data-toggle="modal" data-target="#creationModal"><span class="fa fa-plus-circle"></span> Ajouter un meme</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container">            
+            <div class="row" id="memes"></div>
+        </div>
+        
+        <div class="modal fade" id="creationModal" tabindex="-1" role="dialog" aria-labelledby="creationModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="creationModalLabel">Create a new meme</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group row">
+                                <label for='new_link' class="col-sm-2 col-form-label">Link :</label>
+                                <div class="col-sm-10">
+                                    <input type='text' class='form-control' id='new_link' onkeyup="displayNewImage()">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <img id="new_image" style="margin: 10px; width: 100%;">
+                            </div>
+                            <div class="form-group row">
+                                <label for="new_tags" class="col-sm-2 col-form-label">Tags :</label>
+                                <div class="col-sm-10" id="new_tags">
+                                    <div class="row" style="margin-right: 0px;">
+                                        <input type='text' class='form-control' id='new_tag_1' onkeypress="addTag('new', 1, event)">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="createMeme()">Create meme</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="updateModalLabel">Update this meme</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group row">
+                                <img id="update_image" style="margin: 10px; width: 100%;">
+                            </div>
+                            <div class="form-group row">
+                                <label for="update_tags" class="col-sm-2 col-form-label">Tags :</label>
+                                <div class="col-sm-10" id="update_tags"></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="remove_button" class="btn btn-danger">Remove this meme</button>
+                        <button type="button" id="update_button" class="btn btn-success">Update this meme</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <script src="assets/js/jquery/jquery.js"></script>
         <script src="assets/js/tether/tether.js"></script>
         <script src="assets/js/bootstrap/bootstrap.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>
